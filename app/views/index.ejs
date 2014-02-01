@@ -1,5 +1,7 @@
 <% if (!user) { %>
 	<h2>Welcome! Please log in.</h2>
-<% } else { %>
+	<li><form action="/auth/facebook"><button class="btn btn-primary navbar-btn">Login with Facebook</button></form></li>
+<% } 
+  else { %>
 	<h2>Hello, <%= user.username %>.</h2>
 <% } %>
