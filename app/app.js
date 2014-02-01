@@ -109,8 +109,13 @@ app.get('/login', function(req, res){
   res.render('login', { user: req.user });
 });
 
-app.get('/account', ensureAuthenticated, function(req, res){
+
+app.get('/driverform', ensureAuthenticated, function(req, res){
   res.render('driverform', { user: req.user });
+});
+
+app.post('/index', ensureAuthenticated, function(req, res){
+  res.render('index', {user: req.user});
 });
 
 // GET /auth/facebook

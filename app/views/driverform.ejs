@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-</head>
 <body>
-    <form id="driverform" action="driverform.js" title="" method="post">
+    <form method="post" id="driverform" class="driverform" action="/index">
         <div>
             <label class="dest">Destination</label>
             <input type="text" id="dest" name="dest" >
@@ -20,27 +17,14 @@
         <div>
             <input type="submit" id="submitButton"  name="submitButton" value="Submit">
         </div>
- </form>
-<script type='text/javascript'>
-    /* attach a submit handler to the form */
-    $("#driver").submit(function(event) {
-
-      /* stop form from submitting normally */
-      event.preventDefault();
-
-      /* get some values from elements on the page: */
-      var $form = $( this ),
-    	url = $form.attr( 'action' );
-
-      /* Send the data using post */
-      var posting = $.post( url, { name: $('#name').val(), name2: $('#name2').val() } );
-
-      /* Put the results in a div */
-      posting.done(function( data ) {
-        alert('success');
-      });
-    });
+ 	</form>
+<script>
+ 	$("driverform").submit(function(){
+ 		
+ 		location.href = '/index';
+	});
+});
 </script>
-
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 </body>
 </html> 
