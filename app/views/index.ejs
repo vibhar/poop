@@ -10,11 +10,11 @@
 <body>
 	<div data-role="page" class="main">
 		<div data-role="header">
-			RodeHead
+			<h1>RoadAhead</h1>
 		</div>
 		<% if (!user) { %>
 			<div data-role="main" class="ui-content login main">
-				<h2>Welcome!</h2>
+				<h2 id="welcome">Welcome!</h2>
 				<a href="/auth/facebook" id="login" data-theme="B" class="ui-btn ui-corner-all">Facebook Login</a>
 
 			</div>
@@ -28,3 +28,9 @@
 	</div>
 </body>
 </html>
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script>
+  	$( "#button" ).click(function() {
+		location.href = '/driverform';
+	});
+  </script>
