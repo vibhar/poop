@@ -1,18 +1,27 @@
-<% if (!user) { %>
-	<h2>Welcome! Please log in.</h2>
-	<li><form action="/auth/facebook"><button class="btn btn-primary navbar-btn">Login with Facebook</button></form></li>
-<% } 
-  else { %>
-  <html>
-	<h2>Hello, <%= user.username %>.</h2>
-	<button id="button", class="imgContain">Button</button>
-	<ul id="newsfeed">
-	</ul>
-  </html>
-  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-  <script>
-	$( "#button" ).click(function() {
-		location.href = '/account';
-	});
-  </script>
-<% } %>
+<!doctype html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+	<link rel="stylesheet" href="../css/jquery.mobile-1.4.0.css" />
+	<link href="../css/RodeHead.css" type="text/css" rel="stylesheet" />
+	<script src="../js/jquery-1.9.0.js"></script>
+	<script src="../js/jquery.mobile-1.4.0.min.js"></script>
+</head>
+<div data-role="page" class="main">
+	<div data-role="header">
+		RodeHead
+	</div>
+	<% if (!user) { %>
+		<div data-role="main" class="ui-content login main">
+			<h2>Welcome!</h2>
+			<a href="/auth/facebook/callback" id="login" data-theme="B" class="ui-btn ui-corner-all">Facebook Login</a>
+
+		</div>
+	<% } else { %>
+		<div data-role="content">
+			<h2>Hello, <%= user.username %>.</h2>
+			<a href="/account" class="ui-btn ui-corner-all imgContain">Button</a>
+			<ul id="newsfeed">/</ul>
+		</div>
+	<% } %>
+</div>

@@ -1,0 +1,27 @@
+body {
+    background: url('dark_brick_wall.png');
+    font-family: 'Lato', sans-serif;
+    font-style: normal;
+    color: #D16860;
+    letter-spacing: 0em;
+    word-spacing: 0em;
+    line-height: 1.4;
+    font-size: 34px;
+    text-align: center;
+}
+
+
+#session {
+  margin-bottom: 10%;
+}
+
+.button {
+    margin-top: 5%;
+    font-size: 20px;
+    color: black;
+    background-color: #FF847C;
+    width: 10%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    margin-bottom: 10%;
+}
