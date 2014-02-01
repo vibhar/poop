@@ -7,21 +7,24 @@
 	<script src="../js/jquery-1.9.0.js"></script>
 	<script src="../js/jquery.mobile-1.4.0.min.js"></script>
 </head>
-<div data-role="page" class="main">
-	<div data-role="header">
-		RodeHead
-	</div>
-	<% if (!user) { %>
-		<div data-role="main" class="ui-content login main">
-			<h2>Welcome!</h2>
-			<a href="/auth/facebook/callback" id="login" data-theme="B" class="ui-btn ui-corner-all">Facebook Login</a>
+<body>
+	<div data-role="page" class="main">
+		<div data-role="header">
+			RodeHead
+		</div>
+		<% if (!user) { %>
+			<div data-role="main" class="ui-content login main">
+				<h2>Welcome!</h2>
+				<a href="/auth/facebook" id="login" data-theme="B" class="ui-btn ui-corner-all">Facebook Login</a>
 
-		</div>
-	<% } else { %>
-		<div data-role="content">
-			<h2>Hello, <%= user.username %>.</h2>
-			<a href="/account" class="ui-btn ui-corner-all imgContain">Button</a>
-			<ul id="newsfeed">/</ul>
-		</div>
-	<% } %>
-</div>
+			</div>
+		<% } else { %>
+			<div data-role="content">
+				<h2>Hello, <%= user.username %>.</h2>
+				<a href="/account" class="ui-btn ui-corner-all imgContain">Button</a>
+				<ul id="newsfeed"></ul>
+			</div>
+		<% } %>
+	</div>
+</body>
+</html>
