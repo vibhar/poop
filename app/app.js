@@ -6,7 +6,7 @@ var express = require('express')
 var FACEBOOK_APP_ID = "1403253956592606"
 var FACEBOOK_APP_SECRET = "9b9af6081842673a9d07d47b8757fd88";
 var FB= require('fb');
-var friends = [];
+var Dict= {};
 
 // Passport session setup.
 //   To support persistent login sessions, Passport needs to be able to
@@ -82,8 +82,8 @@ app.get('/', function(req, res){
     console.log(!response ? 'error occurred' : response.error);
     return;
   }
-    for(var i=0; i< response.friends.length; i++){
-      friends.push({key: response.friends[i].id, value: response.friends[i].name});
+   if(!Dict[req.user.id]){
+        Dict[req.user.id]=response.friends;
     }
     
     console.log("WHY IS MARK HERE",response.friends);
