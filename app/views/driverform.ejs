@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+</head>
+<body>
+    <form id="driverform" action="driverform.js" title="" method="post">
+        <div>
+            <label class="dest">Destination</label>
+            <input type="text" id="dest" name="dest" >
+        </div>
+        <div>
+            <label class="start">Start Location</label>
+            <input type="text" id="start" name="start" >
+        </div>
+        <div>
+            <label class="time">Time of Departure</label>
+            <input type="text" id="time" name="time" >
+        </div>
+        <div>
+            <input type="submit" id="submitButton"  name="submitButton" value="Submit">
+        </div>
+ </form>
+<script type='text/javascript'>
+    /* attach a submit handler to the form */
+    $("#driver").submit(function(event) {
+
+      /* stop form from submitting normally */
+      event.preventDefault();
+
+      /* get some values from elements on the page: */
+      var $form = $( this ),
+    	url = $form.attr( 'action' );
+
+      /* Send the data using post */
+      var posting = $.post( url, { name: $('#name').val(), name2: $('#name2').val() } );
+
+      /* Put the results in a div */
+      posting.done(function( data ) {
+        alert('success');
+      });
+    });
+</script>
+
+</body>
+</html> 

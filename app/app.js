@@ -8,7 +8,6 @@ var FACEBOOK_APP_SECRET = "9b9af6081842673a9d07d47b8757fd88";
 var FB= require('fb');
 var friends = [];
 
-
 // Passport session setup.
 //   To support persistent login sessions, Passport needs to be able to
 //   serialize users into and deserialize users out of the session.  Typically,
@@ -84,8 +83,9 @@ app.get('/', function(req, res){
     return;
   }
     for(var i=0; i< response.friends.length; i++){
-      friends.push({key: response.friends[i].id, value: response.friends[i].name})
+      friends.push({key: response.friends[i].id, value: response.friends[i].name});
     }
+    
     console.log("WHY IS MARK HERE",response.friends);
     console.log(response.name);   
   
@@ -107,6 +107,10 @@ app.get('/account', ensureAuthenticated, function(req, res){
 
 app.get('/login', function(req, res){
   res.render('login', { user: req.user });
+});
+
+app.get('/account', ensureAuthenticated, function(req, res){
+  res.render('driverform', { user: req.user });
 });
 
 // GET /auth/facebook

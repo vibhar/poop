@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="reset.css" rel="stylesheet" type="text/css">
+	<link href="geolocation.css" rel="stylesheet" type="text/css">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+</head>
+<title>Geolocation</title>
+<body>
+	<div id="header">
+		Your Distance to Entropy is: 
+	</div>
+	<form action="javascript:getDistance()">
+		<input class="button" type="submit" value="What's Your Distance To Entropy?">
+	</form>
+	<div id="geo"></div>
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="geolocation.js"></script>
+</body>	
+</html>
