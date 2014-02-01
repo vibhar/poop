@@ -5,6 +5,8 @@ var express = require('express')
 
 var FACEBOOK_APP_ID = "1403253956592606"
 var FACEBOOK_APP_SECRET = "9b9af6081842673a9d07d47b8757fd88";
+var FB= require('fb');
+var friends = [];
 
 
 // Passport session setup.
@@ -40,6 +42,8 @@ passport.use(new FacebookStrategy({
       // represent the logged-in user.  In a typical application, you would want
       // to associate the Facebook account with a user record in your database,
       // and return that user instead.
+      console.log(profile);
+      profile.accessToken = accessToken;
       return done(null, profile);
     });
   }
@@ -69,7 +73,32 @@ app.configure(function() {
 
 
 app.get('/', function(req, res){
-  res.render('index', { user: req.user });
+
+  
+  if(req.user){
+    FB.setAccessToken(req.user.accessToken);
+    FB.api(req.user.id, { fields: ['id', 'name','friends'] }, function (response) {
+      console.log(response);
+  if(!response || response.error) {
+    console.log(!response ? 'error occurred' : response.error);
+    return;
+  }
+    for(var i=0; i< response.friends.length; i++){
+      friends.push({key: response.friends[i].id, value: response.friends[i].name})
+    }
+    console.log("WHY IS MARK HERE",response.friends);
+    console.log(response.name);   
+  
+
+
+     res.render('index', { user: req.user, friends: response.friends});
+  });
+  }
+  else{
+     res.render('index', { user: null, friends: null});
+  }
+ 
+
 });
 
 app.get('/account', ensureAuthenticated, function(req, res){
